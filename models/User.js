@@ -1,4 +1,5 @@
 import mongoose from 'mongoose';
+import bcrypt from 'bcrypt';
 
 const userSchema = mongoose.Schema({
     name: {
@@ -14,8 +15,7 @@ const userSchema = mongoose.Schema({
     dni: {
         type: String,
         required: true,
-        trim: true,
-        unique: true
+        trim: true
     },
     phone: {
         type: String,
@@ -39,6 +39,19 @@ const userSchema = mongoose.Schema({
         trim: true
     }
 });
+
+// Encriptar password
+userSchema.pre('save', async function () {
+    // si un password está encriptado, ya no lo vuelve a encriptar
+    if (!this.isModified('password')) next();
+
+    const salt = await bcrypt.genSalt(10);
+    this.password = await bcrypt.hash(this.password, salt);
+});
+
+userSchema.methods.verifyPassword = async function (password) {
+    return bcrypt.compare(password, this.password);
+};
 
 const User = mongoose.model('User', userSchema);
 export default User;
