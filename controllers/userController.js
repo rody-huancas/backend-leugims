@@ -58,7 +58,6 @@ const registerUser = async (req, res) => {
     } catch (error) {
         console.log(error);
     }
-
 }
 
 const updateUser = async (req, res) => {
@@ -143,9 +142,6 @@ const loginUser = async (req, res) => {
         res.status(500).json({ error: 'Error interno del servidor' });
     }
 };
-
-export default loginUser;
-
 
 export {
     getAllUsers,
