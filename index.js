@@ -9,10 +9,13 @@ import productRoutes from './routes/productRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
 import categoryServiceRoutes from './routes/categoryServiceRoutes.js';
 import serviceRoutes from './routes/serviceRoutes.js';
+import initializeAdmin from './middleware/initializeAdmin.js';
 
 const app = express();
 app.use(express.json());
 dotenv.config();
+
+initializeAdmin();
 
 // Conexión a la bd
 conectionDB();
