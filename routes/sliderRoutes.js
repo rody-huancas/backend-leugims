@@ -1,12 +1,13 @@
 import express from "express";
 import { createSlider, deleteSlider, getAllSlider, getByIdSlider, updateSlider } from "../controllers/sliderController.js";
+import { verifyToken } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.get("/", getAllSlider);
-router.get("/:id", getByIdSlider);
-router.post("/", createSlider);
-router.put("/:id", updateSlider);
-router.delete("/:id", deleteSlider);
+router.get("/", verifyToken, getAllSlider);
+router.get("/:id", verifyToken, getByIdSlider);
+router.post("/", verifyToken, createSlider);
+router.put("/:id", verifyToken, updateSlider);
+router.delete("/:id", verifyToken, deleteSlider);
 
 export default router;

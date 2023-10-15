@@ -9,11 +9,13 @@ const userSchema = mongoose.Schema({
     },
     lastname: {
         type: String,
-        trim: true
+        trim: true,
+        default: null
     },
     dni: {
         type: String,
-        trim: true
+        trim: true,
+        default: null
     },
     phone: {
         type: String,

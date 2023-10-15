@@ -112,36 +112,34 @@ const deleteUser = async (req, res) => {
 };
 
 
-const loginUser = async (req, res) => {
-    const { email, password } = req.body;
+// const loginUser = async (req, res) => {
+//     const { email, password } = req.body;
 
-    try {
-        // Buscar al usuario por su email
-        const user = await User.findOne({ email });
-        if (!user) return res.status(401).json({ error: 'La cuenta no existe' });
+//     try {
+//         // Buscar al usuario por su email
+//         const user = await User.findOne({ email });
+//         if (!user) return res.status(401).json({ error: 'La cuenta no existe' });
 
+//         // validar contraseña
+//         const isPasswordValid = await user.verifyPassword(password);
+//         if (!isPasswordValid) return res.status(401).json({ error: 'La contraseña es incorrecta' });
 
-        // validar contraseña
-        const isPasswordValid = await user.verifyPassword(password);
-        if (!isPasswordValid) return res.status(401).json({ error: 'La contraseña es incorrecta' });
+//         const userResponse = {
+//             _id: user._id,
+//             name: user.name,
+//             lastname: user.lastname,
+//             dni: user.dni,
+//             phone: user.phone,
+//             address: user.address,
+//             email: user.email,
+//         };
 
-
-        const userResponse = {
-            _id: user._id,
-            name: user.name,
-            lastname: user.lastname,
-            dni: user.dni,
-            phone: user.phone,
-            address: user.address,
-            email: user.email,
-        };
-
-        res.json({ user: userResponse });
-    } catch (error) {
-        console.error(error);
-        res.status(500).json({ error: 'Error interno del servidor' });
-    }
-};
+//         res.json({ user: userResponse });
+//     } catch (error) {
+//         console.error(error);
+//         res.status(500).json({ error: 'Error interno del servidor' });
+//     }
+// };
 
 export {
     getAllUsers,
@@ -149,5 +147,5 @@ export {
     registerUser,
     updateUser,
     deleteUser,
-    loginUser
+    // loginUser
 }
