@@ -7,6 +7,7 @@ import aboutRoutes from './routes/aboutRoutes.js';
 import sliderRoutes from './routes/sliderRoutes.js';
 import productRoutes from './routes/productRoutes.js';
 import categoryRoutes from './routes/categoryRoutes.js';
+import categoryServiceRoutes from './routes/categoryServiceRoutes.js';
 
 const app = express();
 app.use(express.json());
@@ -22,6 +23,7 @@ app.use('/api/about', aboutRoutes);
 app.use('/api/slider', sliderRoutes);
 app.use('/api/product', productRoutes);
 app.use('/api/category', categoryRoutes);
+app.use('/api/categoryServices', categoryServiceRoutes);
 
 // Definir puerto
 const PORT = process.env.PORT || 4000;
