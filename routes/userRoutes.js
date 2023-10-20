@@ -12,8 +12,8 @@ import {
 
 const router = express.Router();
 
-router.get("/", verifyToken, getAllUsers);
-router.get("/:id", verifyToken, getUserById);
+router.get("/", getAllUsers);
+router.get("/:id", getUserById);
 router.post("/", verifyToken, registerUser);
 router.put("/:id", verifyToken, updateUser);
 router.delete("/:id", verifyToken, deleteUser);

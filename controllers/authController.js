@@ -24,7 +24,7 @@ const loginAndGenerateToken = async (req, res) => {
             email: user.email
         };
 
-        const token = jwt.sign(tokenData, 'secreto', { expiresIn: '1h' });
+        const token = jwt.sign(tokenData, 'secreto', { expiresIn: '1d' });
 
         res.json({ token });
     } catch (error) {

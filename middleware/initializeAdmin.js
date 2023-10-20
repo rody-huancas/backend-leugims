@@ -8,7 +8,7 @@ const initializeAdmin = async () => {
             const admin = new User({
                 name: 'Admin',
                 email: 'admin@correo.com',
-                password: '123456',
+                password: 'Rody_1999',
             });
 
             await admin.save();

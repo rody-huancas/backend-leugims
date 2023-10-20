@@ -41,9 +41,9 @@ const userSchema = mongoose.Schema({
 });
 
 // Encriptar password
-userSchema.pre('save', async function () {
-    // si un password está encriptado, ya no lo vuelve a encriptar
-    if (!this.isModified('password')) next();
+userSchema.pre('save', async function (next) {
+    // Si un password está encriptado, ya no lo vuelve a encriptar
+    if (!this.isModified('password')) return next();
 
     const salt = await bcrypt.genSalt(10);
     this.password = await bcrypt.hash(this.password, salt);

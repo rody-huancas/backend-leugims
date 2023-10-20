@@ -1,5 +1,6 @@
 import express from 'express';
 import cors from 'cors'; // Importar el paquete CORS
+import initializeAdmin from './middleware/initializeAdmin.js';
 import dotenv from 'dotenv';
 import conectionDB from './config/database.js';
 import userRoutes from './routes/userRoutes.js';
@@ -11,16 +12,16 @@ import categoryRoutes from './routes/categoryRoutes.js';
 import categoryServiceRoutes from './routes/categoryServiceRoutes.js';
 import serviceRoutes from './routes/serviceRoutes.js';
 import authRoutes from './routes/authRoutes.js';
-import initializeAdmin from './middleware/initializeAdmin.js';
 
 const app = express();
 dotenv.config();
 app.use(cors());
 app.use(express.json());
-initializeAdmin();
 
 // Conexión a la bd
 conectionDB();
+
+initializeAdmin();
 
 // Rutas
 app.use('/api/user', userRoutes);
