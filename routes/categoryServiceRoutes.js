@@ -10,9 +10,9 @@ import { verifyToken } from '../middleware/authMiddleware.js';
 
 const router = express.Router();
 
+router.get('/', getAllCategoryServices);
+router.get('/:id', getCategoryServiceById);
 router.post('/', verifyToken, createCategoryService);
-router.get('/', verifyToken, getAllCategoryServices);
-router.get('/:id', verifyToken, getCategoryServiceById);
 router.put('/:id', verifyToken, updateCategoryService);
 router.delete('/:id', verifyToken, deleteCategoryService);
 

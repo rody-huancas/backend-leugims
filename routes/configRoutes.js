@@ -10,8 +10,8 @@ import { verifyToken } from "../middleware/authMiddleware.js";
 
 const router = express.Router();
 
-router.get("/", verifyToken, getAllConfig);
-router.get("/:id", verifyToken, getByIdConfig);
+router.get("/", getAllConfig);
+router.get("/:id", getByIdConfig);
 router.post("/", verifyToken, createConfig);
 router.put("/:id", verifyToken, updateConfig);
 router.delete("/:id", verifyToken, deleteConfig);
