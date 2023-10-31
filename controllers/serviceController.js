@@ -13,7 +13,7 @@ const createService = async (req, res) => {
 
 const getAllServices = async (req, res) => {
     try {
-        const services = await Service.find();
+        const services = await Service.find().populate('categoryService');
         res.json(services);
     } catch (error) {
         console.error(error);

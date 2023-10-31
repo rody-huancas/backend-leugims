@@ -8,12 +8,10 @@ const serviceSchema = new mongoose.Schema({
     },
     description: {
         type: String,
-        trim: true,
     },
     categoryService: {
         type: mongoose.Schema.Types.ObjectId,
         ref: 'CategoryService',
-        required: true,
     },
 });
 
