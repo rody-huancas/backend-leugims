@@ -18,6 +18,8 @@ const sliderSchema = mongoose.Schema({
         trim: true,
         required: true
     }
+}, {
+    timestamps: true
 });
 
 const Slider = mongoose.model('Slider', sliderSchema);

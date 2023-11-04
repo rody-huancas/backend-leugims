@@ -22,6 +22,8 @@ const aboutSchema = mongoose.Schema({
         trim: true,
         default: null
     }
+}, {
+    timestamps: true
 })
 
 const About = mongoose.model('About', aboutSchema);

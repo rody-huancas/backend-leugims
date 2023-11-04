@@ -7,6 +7,8 @@ const categoryServiceSchema = new mongoose.Schema({
         trim: true,
         unique: true,
     },
+}, {
+    timestamps: true
 });
 
 const CategoryService = mongoose.model('CategoryService', categoryServiceSchema);

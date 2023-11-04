@@ -13,6 +13,8 @@ const serviceSchema = new mongoose.Schema({
         type: mongoose.Schema.Types.ObjectId,
         ref: 'CategoryService',
     },
+}, {
+    timestamps: true
 });
 
 const Service = mongoose.model('Service', serviceSchema);
