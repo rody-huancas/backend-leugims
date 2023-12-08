@@ -66,7 +66,7 @@ const deleteCategoryService = async (req, res) => {
         return res.status(400).json({ error: 'No se puede eliminar la categoría de servicio porque tiene servicios asociados' });
       }
   
-      await categoryService.remove();
+      await categoryService.deleteOne({ _id: categoryService._id });
       res.json({ message: 'Categoría de servicio eliminada con éxito' });
     } catch (error) {
       console.error(error);

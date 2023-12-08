@@ -65,13 +65,14 @@ const deleteCategory = async (req, res) => {
         return res.status(400).json({ error: 'No se puede eliminar la categoría porque tiene productos asociados' });
       }
   
-      await category.remove();
+      await Category.deleteOne({ _id: category._id });
       res.json({ message: 'Categoría eliminada' });
     } catch (error) {
       console.error(error);
       res.status(500).json({ error: 'Error interno del servidor' });
     }
-  };
+};
+
   
 
 export {
