@@ -55,25 +55,25 @@ const updateCategory = async (req, res) => {
 // Eliminar una categoría
 const deleteCategory = async (req, res) => {
     try {
-      const category = await Category.findById(req.params.id);
-      if (!category) {
-        return res.status(404).json({ error: 'Categoría no encontrada' });
-      }
-  
-      const products = await Product.countDocuments({ category: category._id });
-      if (products > 0) {
-        return res.status(400).json({ error: 'No se puede eliminar la categoría porque tiene productos asociados' });
-      }
-  
-      await Category.deleteOne({ _id: category._id });
-      res.json({ message: 'Categoría eliminada' });
+        const category = await Category.findById(req.params.id);
+        if (!category) {
+            return res.status(404).json({ error: 'Categoría no encontrada' });
+        }
+
+        const products = await Product.countDocuments({ category: category._id });
+        if (products > 0) {
+            return res.status(400).json({ error: 'No se puede eliminar la categoría porque tiene productos asociados' });
+        }
+
+        await Category.deleteOne({ _id: category._id });
+        res.json({ message: 'Categoría eliminada' });
     } catch (error) {
-      console.error(error);
-      res.status(500).json({ error: 'Error interno del servidor' });
+        console.error(error);
+        res.status(500).json({ error: 'Error interno del servidor' });
     }
 };
 
-  
+
 
 export {
     getAllCategories,

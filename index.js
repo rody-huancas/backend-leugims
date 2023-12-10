@@ -15,6 +15,7 @@ import categoryRoutes from './routes/categoryRoutes.js';
 import categoryServiceRoutes from './routes/categoryServiceRoutes.js';
 import serviceRoutes from './routes/serviceRoutes.js';
 import dashboardRoutes from './routes/dashboardRoutes.js';
+import contactRoutes from './routes/contactRoutes.js';
 
 const app = express();
 dotenv.config();
@@ -37,6 +38,7 @@ app.use('/api/category', categoryRoutes);
 app.use('/api/categoryServices', categoryServiceRoutes);
 app.use('/api/service', serviceRoutes);
 app.use('/api/dashboard', dashboardRoutes);
+app.use('/api/contact', contactRoutes);
 
 // Definir puerto
 const PORT = process.env.PORT || 4000;
