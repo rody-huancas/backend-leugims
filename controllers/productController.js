@@ -15,13 +15,14 @@ const createProduct = async (req, res) => {
 // Obtener todos los productos
 const getAllProducts = async (req, res) => {
     try {
-        const products = await Product.find().populate('category');
+        const products = await Product.find().sort({ createdAt: -1 }).populate('category');
         res.json(products);
     } catch (error) {
         console.error(error);
         res.status(500).json({ error: 'Error interno del servidor' });
     }
 }
+
 
 // Obtener un producto por ID
 const getProductById = async (req, res) => {
